@@ -32,11 +32,20 @@ export default class extends Phaser.State {
       asset: 'mushroom',
     })
 
+    this.enemy2 = new Enemy({
+      game: this.game,
+      x: Math.floor(Math.random() * 400) + 1, 
+      y: -20,
+      asset: 'mushroom',
+    })
+
     this.game.add.existing(this.mushroom)
     this.game.add.existing(this.enemy)
+    this.game.add.existing(this.enemy2)
     game.input.activePointer.capture = true
     game.physics.enable(this.mushroom, Phaser.Physics.ARCADE)
     game.physics.enable(this.enemy, Phaser.Physics.ARCADE)
+    game.physics.enable(this.enemy2, Phaser.Physics.ARCADE)
   }
 
   update() {
